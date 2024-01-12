@@ -249,3 +249,221 @@ const top100Films = [
                 },
               ];
               
+
+
+
+              <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+      <Box
+        sx={{
+          height: 255,
+          display: 'flex',
+          overflow: 'hidden',
+          width: '100%',
+          justifyContent: 'center',
+        }}
+      >
+        <img
+          src={images[activeStep].imgPath}
+          alt={images[activeStep].label}
+          style={{ height: '100%', transition: 'transform 0.5s ease' }}
+        />
+      </Box>
+      <MobileStepper
+        steps={maxSteps}
+        position="static"
+        activeStep={activeStep}
+        nextButton={
+          <Button
+            size="small"
+            onClick={handleNext}
+            disabled={activeStep === maxSteps - 1}
+          >
+            
+            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          </Button>
+        }
+        backButton={
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+            
+          </Button>
+        }
+      />
+    </Box>
+
+
+
+/// mi ultima versión 
+function App() {
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const maxSteps = images.length;
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  return (
+    <Box sx={{ flexGrow: 1, position: 'relative' }}>
+      <img
+        src={images[activeStep].imgPath}
+        alt={images[activeStep].label}
+        style={{
+          width: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center', // centra la imagen
+          height: '50vh',
+          maxHeight: '500px',
+          transition: 'transform 0.5s ease'
+        }}
+      />
+      <MobileStepper
+        steps={maxSteps}
+        position="static"
+        activeStep={activeStep}
+        sx={{
+          position: 'absolute',
+          bottom: 10,
+          width: '100%',
+          backgroundColor: 'transparent'
+        }} backButton={
+          <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+          </Button>
+        } nextButton={
+          <Button
+            size="small"
+            onClick={handleNext}
+            disabled={activeStep === maxSteps - 1}
+          >
+            {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+          </Button>
+        }
+      />
+    </Box>
+  );
+}
+
+
+/// codigo con scroll 
+<Box sx={{ width: '100%', position: 'relative', flexGrow: 1, height: '80vh' }}> {/* Ajuste el height aquí */}
+<AutoPlaySwipeableViews
+  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+  index={activeStep}
+  onChangeIndex={handleStepChange}
+  enableMouseEvents
+  style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 50 }}> {/* Ajuste el bottom para dejar espacio para el MobileStepper */}
+  {images.map((step, index) => (
+    <div key={step.label}>
+      {Math.abs(activeStep - index) <= 2 ? (
+        <Box
+          component="img"
+          sx={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain',
+          }}
+          src={step.imgPath}
+          alt={step.label}
+        />
+      ) : null}
+    </div>
+  ))}
+</AutoPlaySwipeableViews>
+<MobileStepper
+  sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: 'background.paper' }}
+  steps={maxSteps}
+  position="static"
+  activeStep={activeStep}
+  nextButton={
+    <Button
+      size="small"
+      onClick={handleNext}
+      disabled={activeStep === maxSteps - 1}
+    >
+      Next
+      {theme.direction === 'rtl' ? (
+        <KeyboardArrowLeft />
+      ) : (
+        <KeyboardArrowRight />
+      )}
+    </Button>
+  }
+  backButton={
+    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+      {theme.direction === 'rtl' ? (
+        <KeyboardArrowRight />
+      ) : (
+        <KeyboardArrowLeft />
+      )}
+      Back
+    </Button>
+  }
+/>
+</Box>
+
+
+
+/// codigo verdadero
+{/*<>
+<Box sx={{ width: '100%', position: 'relative', height: '80vh', overflow: 'hidden', flexGrow: 1 }}>
+  <AutoPlaySwipeableViews
+    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+    index={activeStep}
+    onChangeIndex={handleStepChange}
+    enableMouseEvents
+  >
+    {images.map((step, index) => (
+    <div key={step.label}>
+      {Math.abs(activeStep - index) <= 2 ? (
+        <Box
+          component="img"
+          sx={{
+            height: '100%',
+            width: '100%',
+            objectFit: 'contain',
+          }}
+          src={step.imgPath}
+          alt={step.label}
+        />
+      ) : null}
+    </div>
+  ))}
+  </AutoPlaySwipeableViews>
+  <MobileStepper
+  sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: 'background.paper' }}
+  steps={maxSteps}
+    position="static"
+    activeStep={activeStep}
+    nextButton={
+      <Button
+        size="small"
+        onClick={handleNext}
+        disabled={activeStep === maxSteps - 1}
+      >
+        Next
+        {theme.direction === 'rtl' ? (
+          <KeyboardArrowLeft />
+        ) : (
+          <KeyboardArrowRight />
+        )}
+      </Button>
+    }
+    backButton={
+      <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+        {theme.direction === 'rtl' ? (
+          <KeyboardArrowRight />
+        ) : (
+          <KeyboardArrowLeft />
+        )}
+        Back
+      </Button>
+    }
+  />
+</Box>
+
+  </>*/}
