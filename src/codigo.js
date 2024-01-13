@@ -467,3 +467,67 @@ function App() {
 </Box>
 
   </>*/}
+
+
+  //el códgigo de la última reunión
+  {
+    /*function App() {
+    
+    
+      return (
+        <Box sx={{ width: '100%', position: 'relative', height: { xs: '40vh', sm: '70vh', md: '80vh' },
+        overflow: 'hidden', flexGrow: 1 }}>
+          <AutoPlaySwipeableViews
+            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+          >
+            {images.map((step, index) => (
+              <div key={step.label}>
+                {Math.abs(activeStep - index) <= 2 ? (
+                  <Box
+                    component="img"
+                    sx={{
+                      height: '100%',
+                      width: '100%',
+                      objectFit: 'contain',
+                    }}
+                    src={step.imgPath}
+                    alt={step.label}
+                  />
+                ) : null}
+              </div>
+            ))}
+          </AutoPlaySwipeableViews>
+          <MobileStepper
+            sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, backgroundColor: 'background.paper' }}
+            steps={maxSteps}
+            position="static"
+            activeStep={activeStep}
+            nextButton={
+              <Button
+                size="small"
+                onClick={handleNext}
+                disabled={activeStep === maxSteps - 1}
+              >
+                {theme.direction === 'rtl' ? (
+                  <KeyboardArrowLeft />
+                ) : (
+                  <KeyboardArrowRight />
+                )}
+              </Button>
+            }
+            backButton={
+              <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                {theme.direction === 'rtl' ? (
+                  <KeyboardArrowRight />
+                ) : (
+                  <KeyboardArrowLeft />
+                )}
+              </Button>
+            }
+          />
+        </Box>
+      );
+    }*/}
