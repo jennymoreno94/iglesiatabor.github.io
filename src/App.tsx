@@ -1,8 +1,7 @@
 import * as React from 'react';
 import CarouselActividades from './CarouselActividades';
-import { Avatar, Grid, Paper, Typography, styled } from '@mui/material';
+import {Grid, Paper, Typography, styled } from '@mui/material';
 import Reuniones from './Reuniones';
-import { Margin } from '@mui/icons-material';
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
