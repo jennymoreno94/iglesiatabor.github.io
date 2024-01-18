@@ -531,3 +531,40 @@ function App() {
         </Box>
       );
     }*/}
+
+
+
+//17-01-2024
+
+     {/*<Grid container>
+      <Grid item xs={12}>
+        <CarouselActividades />
+      </Grid>
+
+
+      <Grid alignItems="center" container spacing={2} justifyContent="center">
+        <Grid item xs={12}>
+          <Card>
+            <CardContent>
+                <Grid item xs={12}>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Reuniones
+                  </Typography>
+                </Grid>
+                <Grid item lg={4} xs={4}>
+                  <Grid alignItems="center" container spacing={2} justifyContent="space-between">
+                    {reuniones.map((reunion, index) => (
+                      <Grid item lg={4} xs={12}>
+                        <Reuniones titulo={reunion.tiulo} imgPath={reunion.imgPath} descripcion={reunion.descripcion} linkConexionMeet={reunion.linkConexionMeet} linkConexionYoutube={reunion.linkConexionYoutube} />
+                      </Grid>
+                    ))}
+                  </Grid>
+                </Grid>
+           
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+
+     
+    </Grid>*/} 

@@ -14,10 +14,10 @@ interface IInformacionReunion {
 
 const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPath, descripcion, linkConexionMeet, linkConexionYoutube }) => {
   return (
-    <Grid item xs={12} container spacing={1} >
-      <Card style={{ marginTop: '20px' }}>
+    <Grid item xs={12}>
+      <Card style={{ marginTop: '20px', height: '100%'}}>
         <CardMedia
-          sx={{ height: 140 }}
+          sx={{ height: 300 }}
           image={imgPath}
           title={titulo}
         />
@@ -41,6 +41,8 @@ const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPa
         </CardActions>
       </Card>
     </Grid>
+
+
   )
 }
 

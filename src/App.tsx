@@ -1,16 +1,7 @@
 import * as React from 'react';
 import CarouselActividades from './CarouselActividades';
-import {Grid, Paper, Typography, styled } from '@mui/material';
+import {Card, CardContent, Grid, Typography } from '@mui/material';
 import Reuniones from './Reuniones';
-
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  maxWidth: 400,
-  color: theme.palette.text.primary,
-}));
-
 
 const reuniones = [
   {
@@ -56,38 +47,33 @@ const reuniones = [
 
 const App: React.FunctionComponent = () => {
   return (
-    <Grid container>
+    <Grid alignItems="center" container spacing={2} justifyContent="center">
       <Grid item xs={12}>
         <CarouselActividades />
       </Grid>
-      <StyledPaper
-        sx={{
-          my: 1,
-          mx: 'auto',
-          p: 2,
-        }}
-      >
-        <Grid container wrap="nowrap" spacing={2}>
-
-          <Grid item>
-            <Typography gutterBottom variant="h5" component="div">
-              Reuniones
-            </Typography>
-            <Grid container spacing={{ xs: 1, md: 3}} >
-              {reuniones.map((reunion, index) => (
-                <Grid item xs={2} sm={4} md={4} key={index}>
-                  <Reuniones titulo={reunion.tiulo} imgPath={reunion.imgPath} descripcion={reunion.descripcion} linkConexionMeet={reunion.linkConexionMeet} linkConexionYoutube={reunion.linkConexionYoutube} />
+      <Grid item xs={12}>
+        <Card>
+          <CardContent>
+            <Grid alignItems="center" container spacing={2} justifyContent="space-between">
+              <Grid item lg={4} xs={12}>
+                <Typography gutterBottom variant="h5" component="div">
+                  Reuniones
+                </Typography>
+              </Grid>
+              <Grid item lg={12} xs={12}>
+                <Grid alignItems="center" container spacing={2} justifyContent="space-between">
+                  {reuniones.map((reunion, index) => (
+                    <Grid item lg={4} xs={12} key={index}>
+                      <Reuniones titulo={reunion.tiulo} imgPath={reunion.imgPath} descripcion={reunion.descripcion} linkConexionMeet={reunion.linkConexionMeet} linkConexionYoutube={reunion.linkConexionYoutube} />
+                    </Grid>
+                  ))}
                 </Grid>
-              ))}
-
+              </Grid>
             </Grid>
-
-          </Grid>
-        </Grid>
-      </StyledPaper>
-
+          </CardContent>
+        </Card>
+      </Grid>
     </Grid>
-
   )
 }
 
