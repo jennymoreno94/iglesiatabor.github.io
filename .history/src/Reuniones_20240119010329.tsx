@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, Card, CardContent, Typography, CardMedia, CardActions, Button, IconButton, } from '@mui/material';
+import { Grid, Card, CardContent, Typography, CardMedia, CardActions, Button, IconButton,makeStyles } from '@mui/material';
 import YouTube from '@mui/icons-material/YouTube';
 import Videocam from '@mui/icons-material/Videocam';
 
@@ -10,9 +10,16 @@ interface IInformacionReunion {
   linkConexionMeet: string,
   linkConexionYoutube?: string
 }
-
+const useStyles=makeStyles ({
+  root:{
+    "&:hover":{
+      backgroundColor:"transparent"
+    }
+  }
+});
 
 const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPath, descripcion, linkConexionMeet, linkConexionYoutube }) => {
+  const classes = useStyles();
   return (
     <Grid item xs={12}>
       <Card style={{ marginTop: '20px', height: '100%', backgroundColor:'#edf3ff',border:'1px solid #7d8dfc' }}>
@@ -30,10 +37,10 @@ const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPa
           </Typography>
         </CardContent>
         <CardActions disableSpacing  >
-          <IconButton aria-label="googlemeet" href={`${linkConexionMeet}`} sx={{ "&:hover": { backgroundColor: "rgb(223 74 74 / 20%)" ,color:"#d5444b"}}}>
+          <IconButton aria-label="googlemeet" href={`${linkConexionMeet}`} className={classes.root}>
             <Videocam />
-          </IconButton >
-          <IconButton aria-label="youtube" href={`${linkConexionYoutube}`} sx={{ "&:hover": { backgroundColor: "rgb(223 74 74 / 20%)" ,color:"#d5444b"}}} style={{
+          </IconButton>
+          <IconButton aria-label="youtube" href={`${linkConexionYoutube}`} style={{
             visibility: (linkConexionYoutube !== undefined && linkConexionYoutube !== "") ? 'visible' : 'hidden'
           }}>
             <YouTube />

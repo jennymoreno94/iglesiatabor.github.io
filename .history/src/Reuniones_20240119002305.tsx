@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Grid, Card, CardContent, Typography, CardMedia, CardActions, Button, IconButton, } from '@mui/material';
+import { Grid, Card, CardContent, Typography, CardMedia, CardActions, Button, IconButton } from '@mui/material';
 import YouTube from '@mui/icons-material/YouTube';
 import Videocam from '@mui/icons-material/Videocam';
 
@@ -15,13 +15,13 @@ interface IInformacionReunion {
 const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPath, descripcion, linkConexionMeet, linkConexionYoutube }) => {
   return (
     <Grid item xs={12}>
-      <Card style={{ marginTop: '20px', height: '100%', backgroundColor:'#edf3ff',border:'1px solid #7d8dfc' }}>
-        <CardMedia 
+      <Card style={{ marginTop: '20px', height: '100%', backgroundColor:'#222061' , color:'#d5444b'}}>
+        <CardMedia
           sx={{ height: 300 }}
           image={imgPath}
           title={titulo}
         />
-        <CardContent >
+        <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {titulo}
           </Typography>
@@ -29,11 +29,11 @@ const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPa
             {descripcion}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing  >
-          <IconButton aria-label="googlemeet" href={`${linkConexionMeet}`} sx={{ "&:hover": { backgroundColor: "rgb(223 74 74 / 20%)" ,color:"#d5444b"}}}>
+        <CardActions disableSpacing>
+          <IconButton aria-label="googlemeet" href={`${linkConexionMeet}`}>
             <Videocam />
-          </IconButton >
-          <IconButton aria-label="youtube" href={`${linkConexionYoutube}`} sx={{ "&:hover": { backgroundColor: "rgb(223 74 74 / 20%)" ,color:"#d5444b"}}} style={{
+          </IconButton>
+          <IconButton aria-label="youtube" href={`${linkConexionYoutube}`} style={{
             visibility: (linkConexionYoutube !== undefined && linkConexionYoutube !== "") ? 'visible' : 'hidden'
           }}>
             <YouTube />

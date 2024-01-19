@@ -29,11 +29,11 @@ const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPa
             {descripcion}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing  >
-          <IconButton aria-label="googlemeet" href={`${linkConexionMeet}`} sx={{ "&:hover": { backgroundColor: "rgb(223 74 74 / 20%)" ,color:"#d5444b"}}}>
+        <CardActions disableSpacing  sx={{ "&:hover": { color: "#d5444b" } }}>
+          <IconButton aria-label="googlemeet" href={`${linkConexionMeet}`} sx={{ "&:hover": { color: "#d5444b" } }}>
             <Videocam />
           </IconButton >
-          <IconButton aria-label="youtube" href={`${linkConexionYoutube}`} sx={{ "&:hover": { backgroundColor: "rgb(223 74 74 / 20%)" ,color:"#d5444b"}}} style={{
+          <IconButton aria-label="youtube" href={`${linkConexionYoutube}`} sx={{ "&:hover": { color: "#d5444b" } }} style={{
             visibility: (linkConexionYoutube !== undefined && linkConexionYoutube !== "") ? 'visible' : 'hidden'
           }}>
             <YouTube />
