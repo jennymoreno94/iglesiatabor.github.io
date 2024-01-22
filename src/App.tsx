@@ -1,8 +1,9 @@
 import * as React from 'react';
 import CarouselActividades from './CarouselActividades';
-import {Card, CardContent, Grid, Typography } from '@mui/material';
+import { Card, CardContent, Grid, Typography } from '@mui/material';
 import Reuniones from './Reuniones';
 import MenuPrincipal from './MenuPrincipal';
+import Contacto from './Contacto';
 
 const reuniones = [
   {
@@ -50,7 +51,7 @@ const App: React.FunctionComponent = () => {
   return (
     <Grid alignItems="center" container spacing={2} justifyContent="center">
       <Grid item xs={12}>
-         <MenuPrincipal/>
+        <MenuPrincipal />
       </Grid>
       <Grid item xs={12}>
         <CarouselActividades />
@@ -72,6 +73,22 @@ const App: React.FunctionComponent = () => {
                     </Grid>
                   ))}
                 </Grid>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+      </Grid>
+      <Grid item xs={12}>
+        <Card>
+          <CardContent>
+            <Grid container spacing={2} justifyContent="space-between">
+              <Grid item lg={6} xs={12}>
+                <Typography gutterBottom variant="h5" component="div">
+                  Contacto
+                </Typography>
+              </Grid>
+              <Grid container spacing={2} justifyContent="center" style={{ marginTop: '2rem' }}>
+                <Contacto />
               </Grid>
             </Grid>
           </CardContent>
