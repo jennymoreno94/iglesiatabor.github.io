@@ -1,27 +1,25 @@
 import * as React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import Imagen1 from "./img/8530163.jpg";
+import Imagen2 from "./img/8505980.jpg";
 
 const images = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    imgPath: Imagen1
   },
   {
     label: 'Bird',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+    imgPath:Imagen2
   },
   {
     label: 'Bali, Indonesia',
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+    imgPath:Imagen1
   },
   {
     label: 'Goč, Serbia',
-    imgPath:
-      'https://imagenesdepaisajes.org/wp-content/uploads/2016/07/imagenes-grandes-de-paisajes-monta%C3%B1as.jpg',
+    imgPath:Imagen2
   },
 ];
 
@@ -36,11 +34,10 @@ const CarouselActividades: React.FunctionComponent = () => {
       autoPlay={true}
       infiniteLoop={true}
       interval={2000}
-
     >
       {images.map((step, index) => (
-        <div key={step.label} style={{ width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <img src={step.imgPath} style={{ width: '100%', height: 'auto', objectFit: 'contain' }} />
+        <div key={step.label} style={{ width: '100%',display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <img src={step.imgPath} style={{ width: '100%', height: 'auto', objectFit: 'contain'}} />
         </div>
       ))}
     </Carousel>

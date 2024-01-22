@@ -22,10 +22,10 @@ const Reuniones: React.FunctionComponent<IInformacionReunion> = ({ titulo, imgPa
           title={titulo}
         />
         <CardContent >
-          <Typography gutterBottom variant="h5" component="div">
-            {titulo}
+          <Typography gutterBottom variant="h5" component="div" style={{ color: "#8b2636"}}>
+          <strong>{titulo}</strong>  
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" style={{ color: "#a52b3a"}} >
             {descripcion}
           </Typography>
         </CardContent>
